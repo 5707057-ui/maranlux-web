@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maranlux | Timeless Elegance</title>
+<style>
+:root{
+  --bg:#f4efe6;
+  --paper:#fbf7ef;
+  --ink:#161616;
+  --muted:#6f675d;
+  --line:#2b2b2b;
+  --taupe:#c9bca8;
+  --soft:#e8ded0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a{color:inherit}
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 7%;
+  border-bottom:1px solid rgba(0,0,0,.18);
+  background:rgba(244,239,230,.92);
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(8px);
+}
+.logo{
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing:8px;
+  font-size:25px;
+}
+.nav-links a{
+  text-decoration:none;
+  margin-left:28px;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.hero{
+  min-height:88vh;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+  padding:48px 7% 70px;
+}
+.hero-card{
+  border:1.4px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:var(--paper);
+  position:relative;
+}
+.hero-img{
+  height:100%;
+  min-height:560px;
+  background:
+    linear-gradient(rgba(0,0,0,.06),rgba(0,0,0,.06)),
+    url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85');
+  background-size:cover;
+  background-position:center;
+}
+.hero-text{
+  padding:58px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.kicker{
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+h1{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight:400;
+  font-size:76px;
+  line-height:.95;
+  margin:24px 0;
+  letter-spacing:-2px;
+}
+.hero-text p{
+  font-size:18px;
+  line-height:1.7;
+  max-width:560px;
+}
+.btn{
+  width:max-content;
+  text-decoration:none;
+  border:1.4px solid var(--ink);
+  padding:14px 26px;
+  border-radius:999px;
+  margin-top:26px;
+  font-weight:bold;
+  letter-spacing:.5px;
+  background:transparent;
+}
+.btn:hover{background:var(--ink); color:var(--paper)}
+.section{
+  padding:70px 7%;
+}
+.section-title{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:30px;
+}
+h2{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size:52px;
+  font-weight:400;
+  margin:0;
+  letter-spacing:-1px;
+}
+.subtitle{
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.editorial-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.editorial{
+  min-height:310px;
+  border:1.3px solid var(--line);
+  border-radius:15px;
+  overflow:hidden;
+  background:var(--paper);
+  position:relative;
+}
+.editorial img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.editorial .caption{
+  position:absolute;
+  left:18px;
+  top:18px;
+  color:white;
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
+  font-weight:bold;
+  letter-spacing:1px;
+}
+.about-box{
+  border:1.4px solid var(--line);
+  border-radius:18px;
+  padding:52px;
+  background:var(--paper);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:42px;
+}
+.about-box p{
+  line-height:1.75;
+  margin-top:0;
+}
+.values{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.value{
+  background:var(--paper);
+  border:1.3px solid var(--line);
+  border-radius:16px;
+  padding:30px;
+}
+.value h3{
+  font-family:Georgia, 'Times New Roman', serif;
+  font-size:29px;
+  font-weight:400;
+  margin:0 0 12px;
+}
+.value p{color:var(--muted); line-height:1.6}
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.product{
+  background:var(--paper);
+  border:1.3px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+}
+.product-img{
+  height:345px;
+  background-size:cover;
+  background-position:center;
+  filter:saturate(.75) contrast(.98);
+}
+.product-info{
+  padding:20px;
+}
+.product-info h3{
+  font-family:Georgia, 'Times New Roman', serif;
+  font-size:25px;
+  font-weight:400;
+  margin:0 0 8px;
+}
+.product-info p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+.price{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:18px;
+  font-weight:bold;
+}
+.add{
+  text-decoration:none;
+  border-bottom:1px solid var(--ink);
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.banner{
+  border:1.4px solid var(--line);
+  border-radius:18px;
+  padding:55px;
+  text-align:center;
+  background:var(--soft);
+}
+.banner h2{
+  font-size:64px;
+  font-style:italic;
+}
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+.contact-card{
+  border:1.3px solid var(--line);
+  border-radius:16px;
+  background:var(--paper);
+  padding:34px;
+}
+footer{
+  padding:35px 7%;
+  border-top:1px solid rgba(0,0,0,.18);
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:14px;
+}
+@media(max-width:900px){
+  .hero,.about-box,.contact{grid-template-columns:1fr}
+  .editorial-grid,.values,.products{grid-template-columns:1fr 1fr}
+  h1{font-size:58px}
+}
+@media(max-width:620px){
+  .editorial-grid,.values,.products{grid-template-columns:1fr}
+  .nav{display:block}
+  .nav-links{margin-top:14px}
+  .nav-links a{margin:0 16px 0 0}
+  h2{font-size:40px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">MARANLUX</div>
+  <div class="nav-links">
+    <a href="#marca">Marca</a>
+    <a href="#coleccion">Colección</a>
+    <a href="#tienda">Tienda</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-card hero-img"></div>
+  <div class="hero-card hero-text">
+    <span class="kicker">#MARANLUX · Timeless elegance</span>
+    <h1>Elegancia sostenible para vestir el futuro.</h1>
+    <p>
+      Maranlux nace como una marca de moda con estética limpia, femenina y sofisticada.
+      Diseñamos prendas atemporales en tonos neutros, con materiales responsables y producción limitada.
+    </p>
+    <a class="btn" href="#tienda">Ver colección</a>
+  </div>
+</header>
+
+<section class="section" id="marca">
+  <div class="section-title">
+    <h2>Una marca con propósito.</h2>
+    <p class="subtitle">
+      Nuestra propuesta combina moda elegante, conciencia ambiental y exclusividad. No buscamos producir más, sino producir mejor.
+    </p>
+  </div>
+
+  <div class="editorial-grid">
+    <div class="editorial">
+      <span class="caption">#MARANLUX</span>
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85" alt="Editorial Maranlux">
+    </div>
+    <div class="editorial">
+      <span class="caption">#SoftTailoring</span>
+      <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=900&q=85" alt="Ropa elegante">
+    </div>
+    <div class="editorial">
+      <span class="caption">#Photobook</span>
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=85" alt="Packaging elegante">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="about-box">
+    <div>
+      <span class="kicker">Quiénes somos</span>
+      <h2>Maranlux</h2>
+    </div>
+    <div>
+      <p>
+        Somos una marca de moda sostenible creada por tres jóvenes emprendedores que quieren ofrecer una alternativa al consumo rápido.
+        Apostamos por prendas elegantes, cómodas y duraderas, pensadas para personas que valoran la estética, la calidad y la responsabilidad.
+      </p>
+      <p>
+        Nuestra identidad se basa en colecciones limitadas, colores neutros, tejidos ecológicos y una imagen visual cuidada, minimalista y premium.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="coleccion">
+  <div class="section-title">
+    <h2>Valores de la colección.</h2>
+    <p class="subtitle">Moda sostenible con una estética más madura, delicada y exclusiva.</p>
+  </div>
+  <div class="values">
+    <div class="value">
+      <h3>Elegancia</h3>
+      <p>Diseños limpios, tonos crema, blanco, beige y negro, con una imagen sofisticada y atemporal.</p>
+    </div>
+    <div class="value">
+      <h3>Sostenibilidad</h3>
+      <p>Uso de tejidos ecológicos, embalajes reciclables y producción controlada para evitar la sobreproducción.</p>
+    </div>
+    <div class="value">
+      <h3>Exclusividad</h3>
+      <p>Colecciones limitadas para mantener una identidad propia y alejada de la moda masiva.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tienda">
+  <div class="section-title">
+    <h2>Tienda online.</h2>
+    <p class="subtitle">Simulación de catálogo para mostrar cómo se presentaría la colección en la web oficial.</p>
+  </div>
+
+  <div class="products">
+    <div class="product">
+      <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="product-info">
+        <h3>Vestido Satin Cream</h3>
+        <p>Vestido fluido en tono crema, elegante y atemporal para ocasiones especiales.</p>
+        <div class="price"><span>89,95 €</span><a class="add" href="#">Comprar</a></div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="product-info">
+        <h3>Blazer Soft Ivory</h3>
+        <p>Blazer blanco roto de corte relajado, ideal para un estilo sofisticado y moderno.</p>
+        <div class="price"><span>84,95 €</span><a class="add" href="#">Comprar</a></div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="product-info">
+        <h3>Set Linen Beige</h3>
+        <p>Conjunto de lino en tono beige, cómodo, fresco y con acabado premium.</p>
+        <div class="price"><span>79,95 €</span><a class="add" href="#">Comprar</a></div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="product-info">
+        <h3>Pantalón Wide Sand</h3>
+        <p>Pantalón amplio en tono arena, pensado para looks limpios y elegantes.</p>
+        <div class="price"><span>69,95 €</span><a class="add" href="#">Comprar</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="banner">
+    <span class="kicker">Modelo de negocio</span>
+    <h2>Una marca con margen y propósito.</h2>
+    <p>
+      Canal principal: tienda online · Distribución directa y selectiva · Producción limitada · Imagen premium sostenible
+    </p>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="contact">
+    <div class="contact-card">
+      <h2>Contacto</h2>
+      <p>Email: info@maranlux.com</p>
+      <p>Instagram: @maranlux</p>
+      <p>Valencia, España</p>
+    </div>
+    <div class="contact-card">
+      <h2>Newsletter</h2>
+      <p>Recibe novedades de la próxima colección, lanzamientos limitados y contenido exclusivo de la marca.</p>
+      <a class="btn" href="#">Suscribirse</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 MARANLUX</span>
+  <span>#FutureOfFashion · #TimelessElegance · #SustainableLuxury</span>
+</footer>
+
+</body>
+</html>
